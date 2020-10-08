@@ -15,16 +15,17 @@ const ProfilePage = () => {
     history.push("/image/:id")
   }
 
-  const goToHomePage = () => {
+  const logoff = () => {
+    localStorage.clear("token")
     history.push("/")
-  }
+}
 
   return (
     <div>
       <h>PROFILE PAGE</h>
       <button onClick={goToImageDetailsPage}>Veja detalhes da imagem</button>
       <button onClick={goToAddImagePage}>Adicione uma nova imagem</button>
-      <button onClick={goToHomePage}>Sair</button>
+      <button onClick={logoff}>Sair</button>
     </div>
   )
 }

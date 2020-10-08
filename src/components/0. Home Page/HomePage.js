@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 const HomePage = () => {
   const history = useHistory()
-
-  const baseUrl = "http://localhost: 3000"
 
   const goToLoginPage = () => {
     history.push("/login")
