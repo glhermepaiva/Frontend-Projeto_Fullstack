@@ -30,7 +30,7 @@ const App = () => {
           <ImageDetailsPage />
         </Route>
         <Route path ="/">
-          <h1>Erro 404 - Página não encontrada 😢</h1>
+          <h1>Erro 404 - Página não encontrada</h1>
         </Route>
       </Switch>
     </BrowserRouter>
