@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import {Body, Logo, Logo2, Input, ButtonLogin, ButtonSignup, Ou} from './styles'
 
 const LoginPage = () => {
   const history = useHistory()
@@ -47,14 +48,17 @@ const LoginPage = () => {
   }
 
   return (
-    <div>
-      <p>LOGIN PAGE</p>
-      <input placeholder="Nome de Usuário" value={username} onChange={onChangeUsername} />
-      <input placeholder="Email" value={email} onChange={onChangeEmail} />
-      <input placeholder="Senha" onChange={onChangePassword} type="password" />
-      <button onClick={goToProfilePage}>Logar</button>
-      <button onClick={goToSignupPage}>Cadastre-se</button>
-    </div>
+    <Body>
+      <Logo>VEJA O NOVO, </Logo>
+      <Logo2>AGORA</Logo2>
+      <Input placeholder="Nome de Usuário" value={username} onChange={onChangeUsername} />
+      <Ou>ou</Ou>
+      <Input placeholder="Email" value={email} onChange={onChangeEmail} />
+      <Input placeholder="Senha" onChange={onChangePassword} type="password" />
+      <ButtonLogin onClick={goToProfilePage}>LOGAR</ButtonLogin>
+      <Ou>Se ainda não tiver uma conta, cadastre-se </Ou>
+      <ButtonSignup onClick={goToSignupPage}>Cadastre-se</ButtonSignup>
+    </Body>
   )
 }
 
