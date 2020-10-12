@@ -16,7 +16,7 @@ export const Body = styled.div`
 export const Logo = styled.h1`
   background-color: black;
   color: white;
-  font-size: 2vw;
+  font-size: 2.5vw;
   user-select: none;
   display: inline;
   margin: 0;
@@ -24,8 +24,8 @@ export const Logo = styled.h1`
 
 export const Logo2 = styled.h1`
   background-color: black;
-  color: #FFE5BF;
-  font-size: 5vw;
+  color: #498DB4;
+  font-size: 6vw;
   user-select: none;
   display: inline;
   margin: 0 0 0.5vw 0;
@@ -40,18 +40,41 @@ export const Input = styled.input`
   outline: none;
   font-weight: 550;
   border: none;
-  color: #2D5D7D;
+  color: #23597F;
 `
 
-export const Ou = styled.p`
-  color: #FFE5BF;
+export const ButtonLogin = styled.button`
+  color: white;
+  background-color: #FD545B;
+  margin: 1vw 0.3vw;
+  display: inline;
+  padding: 1vw;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  font-size: 1.2vw;
+  padding: 0.7vw;
+  :hover {
+    opacity: 80%;
+    transition: 0.6s;
+    color: #E69D83;
+  }
+  :active {
+    color: #89B0BD;
+  }
+`
+
+export const Texto = styled.p`
+  color: white;
   font-weight: bold;
   margin: 0.2vw 0;
 `
 
 export const ButtonSignup = styled.button`
-  color: white;
-  background-color: #89B0BD;
+  color: #FD545B;
+  background-color: white;
   margin: 1vw 0;
   display: inline;
   padding: 1vw;
@@ -60,7 +83,7 @@ export const ButtonSignup = styled.button`
   cursor: pointer;
   outline: none;
   user-select: none;
-  font-size: 0.9vw;
+  font-size: 1vw;
   padding: 0.7vw;
   :hover {
     opacity: 80%;
@@ -72,25 +95,3 @@ export const ButtonSignup = styled.button`
   }
 `
 
-export const ButtonLogin = styled.button`
-  color: #6E5135;
-  background-color: #FFE5BF;
-  margin: 1vw 0.3vw;
-  display: inline;
-  padding: 1vw;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  outline: none;
-  user-select: none;
-  font-size: 1vw;
-  padding: 0.7vw;
-  :hover {
-    opacity: 80%;
-    transition: 0.6s;
-    color: #E69D83;
-  }
-  :active {
-    color: #89B0BD;
-  }
-`
