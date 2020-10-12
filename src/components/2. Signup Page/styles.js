@@ -15,7 +15,7 @@ export const Body = styled.div`
 export const Logo = styled.h1`
   background-color: black;
   color: white;
-  font-size: 2vw;
+  font-size: 2.7vw;
   user-select: none;
   display: inline;
   margin: 0;
@@ -24,7 +24,7 @@ export const Logo = styled.h1`
 export const Logo2 = styled.h1`
   background-color: black;
   color: #FBAB8E;
-  font-size: 5vw;
+  font-size: 6.3vw;
   user-select: none;
   display: inline;
   margin: 0;
@@ -66,6 +66,10 @@ export const Select = styled.select`
   border: none;
   user-select: none;
   outline: none;
+`
+
+export const Buttons = styled.div`
+  align-self: left;
 `
 
 export const ButtonSignup = styled.button`
@@ -114,6 +118,3 @@ export const ButtonLogin = styled.button`
   }
 `
 
-export const Buttons = styled.div`
-  align-self: left;
-`

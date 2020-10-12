@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import {Body, Logo, Logo2, Logos, Inputs, Input, Select, ButtonSignup, ButtonLogin, Buttons} from './styles'
+import {DisappearedLoading} from 'react-loadingg';
 
 const SignupPage = () => {
   const history = useHistory()
@@ -17,8 +18,10 @@ const SignupPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [role, setRole] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const signup = () => {
+    setLoading(true)
     const body = {
       username: username,
       name: name,
@@ -30,10 +33,14 @@ const SignupPage = () => {
     .then((response) => {
       alert("Usuário criado com sucesso, redirecionando agora para seu perfil!")
       window.localStorage.setItem("token", response.data.token)
+      window.localStorage.setItem("name", response.data.name)
       history.push("/profile")
+      setLoading(false)
     }).catch((error) => {
       alert("Erro ao criar usuário, por favor tente novamente.")
       console.log(error.message)
+      setPassword("")
+      setLoading(false)
     })
   }
 
@@ -59,12 +66,13 @@ const SignupPage = () => {
 
   return (
     <Body>
+      {loading ? <DisappearedLoading /> : <Body>
       <Logos>
         <Logo><i>FAÇA PARTE</i> DE ALGO </Logo>
-        <Logo2><i>MAIOR</i></Logo2>
+        <Logo2>MA<i>IOR</i></Logo2>
       </Logos>
       <Inputs>
-        <Input placeholder="Nome de Usuário" value={username} onChange={onChangeUsername} />
+        <Input placeholder="Nome de usuário" value={username} onChange={onChangeUsername} />
         <Input placeholder="Nome completo" value={name} onChange={onChangeName} />
         <Input placeholder="Email" value={email} onChange={onChangeEmail} />
         <Input placeholder="Senha" value={password} onChange={onChangePassword} type="password" />
@@ -79,7 +87,7 @@ const SignupPage = () => {
           <ButtonLogin onClick={goToLoginPage}>Já tem uma conta? Faça login!</ButtonLogin>
         </Buttons>
       </Inputs>
-      
+      </Body>}
     </Body>
   )
 }

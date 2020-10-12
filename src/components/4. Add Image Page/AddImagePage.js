@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import { Archive } from '@material-ui/icons';
 
 const AddImagePage = () => {
   const history = useHistory()
@@ -68,13 +69,13 @@ const AddImagePage = () => {
   return (
     <div>
       <h>ADD IMAGE PAGE</h>
-      <input placeholder="Título" />
-      <input placeholder="Autor" />
-      <input placeholder="Data" />
-      <input placeholder="Arquivo" />
-      <input placeholder="Tags" />
-      <input placeholder="Coleção" />
-      <button onClick={goToProfilePage}>Adicionar</button>
+      <input placeholder="Título" value={subtitle} onChange={onChangeSubtitle} />
+      <input placeholder="Autor" value={author} onChange={onChangeAuthor} />
+      <input placeholder="Data" value={date} onChange={onChangeDate} />
+      <input placeholder="Arquivo" value={file} onChange={onChangeFile} />
+      <input placeholder="Tags" value={tags} onChange={onChangeTags} />
+      <input placeholder="Coleção" value={collection} onChange={onChangeCollection} />
+      <button onClick={addImage}>Adicionar</button>
       <button onClick={goToProfilePage}>Cancelar</button>
     </div>
   )
