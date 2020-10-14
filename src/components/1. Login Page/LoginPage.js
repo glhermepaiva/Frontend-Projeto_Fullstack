@@ -28,8 +28,8 @@ const LoginPage = () => {
     axios.post(`${baseUrl}/user/login`, body)
     .then((response) => {
       window.localStorage.setItem("token", response.data.token)
-      window.localStorage.setItem("name", response.data.name)
-      console.log(response)
+      window.localStorage.setItem("name", response.data.infos.name)
+      window.localStorage.setItem("username", response.data.infos.username)
       history.push("/profile")
       setLoading(false)
     }).catch((error) => {

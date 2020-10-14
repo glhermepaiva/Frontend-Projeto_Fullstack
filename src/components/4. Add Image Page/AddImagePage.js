@@ -71,7 +71,7 @@ const AddImagePage = () => {
       <h>ADD IMAGE PAGE</h>
       <input placeholder="Título" value={subtitle} onChange={onChangeSubtitle} />
       <input placeholder="Autor" value={author} onChange={onChangeAuthor} />
-      <input placeholder="Data" value={date} onChange={onChangeDate} />
+      <input placeholder="Data" value={date} onChange={onChangeDate} type="datetime-local" />
       <input placeholder="Arquivo" value={file} onChange={onChangeFile} />
       <input placeholder="Tags" value={tags} onChange={onChangeTags} />
       <input placeholder="Coleção" value={collection} onChange={onChangeCollection} />
