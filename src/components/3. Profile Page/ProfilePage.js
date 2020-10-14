@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import {Body, Logo, Logo2, Image, ButtonAddImage, ButtonLogoff} from './styles'
@@ -21,19 +21,50 @@ const ProfilePage = () => {
   const logoff = () => {
     localStorage.clear("token", "name")
     history.push("/")
-}
+  }
+
+  const [imagesArray, setImagesArray] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    imagesFeed()
+  }, [])
 
   const imagesFeed = () => {
+    setLoading(true)
     const token = window.localStorage.getItem("token")
-    axios.get(`${baseUrl}/image/gallery/:username`)
+    const username = window.localStorage.getItem("username")
+    axios.get(`${baseUrl}/image/gallery/${username}`, {
+      headers: {
+        Authorization: token
+      }
+    })
+    .then((response) => {
+      setImagesArray(response.data.gallery)
+      setLoading(false)
+    }).catch((error) => {
+      console.log(error.message)
+    })
+  }
+
+  const testao = () => {
+    if (imagesArray !== ""){
+      return "legal"
+    }
+    return "fué"
+  } 
+
+  const consola = () => {
+    console.log(imagesArray[0].author)
   }
 
   return (
     <Body>
+      <button onClick={consola}>aqui</button>
       <Logo><i>FLICK</i>ENU</Logo>
       <Logo2>Perfil</Logo2>
       <p>{name}</p>
-      <Image src="https://picsum.photos/280/185" onClick={goToImageDetailsPage} />
+      {testao()}
       <ButtonAddImage onClick={goToAddImagePage}>Adicione uma nova imagem</ButtonAddImage>
       <ButtonLogoff onClick={logoff}>sair</ButtonLogoff>
     </Body>
