@@ -1,14 +1,14 @@
 import styled from 'styled-components'
+import ProfilePic from '../images/profilepic.jpg'
 
 export const Body = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
   font-family: Helvetica;
-  background-size: 100vw;
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
+  overflow: hidden;
 `
 
 export const Logo = styled.h1`
@@ -27,10 +27,6 @@ export const Logo2 = styled.h1`
   user-select: none;
   display: inline;
   margin: 0 0 0.5vw 0;
-`
-
-export const Image = styled.img`
-  cursor: pointer;
 `
 
 export const ButtonAddImage = styled.button`
@@ -56,12 +52,6 @@ export const ButtonAddImage = styled.button`
   }
 `
 
-export const Texto = styled.p`
-  color: white;
-  font-weight: bold;
-  margin: 0.2vw 0;
-`
-
 export const ButtonLogoff = styled.button`
   color: #FD545B;
   background-color: white;
@@ -83,4 +73,51 @@ export const ButtonLogoff = styled.button`
   :active {
     color: #FBAB8E;
   }
+`
+
+export const Username = styled.p`
+  font-size: 2vw;
+  background-color: limegreen;
+`
+
+export const Sidebar = styled.div`
+  display: flex;
+  background-image: linear-gradient(to bottom, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
+  flex-direction: column;
+  margin: 0 3vw 0 3vw;
+  align-items: center;
+  overflow: auto;
+  width: 15vw;
+  height: 80vh;
+  padding: 2%;
+`
+
+export const Main = styled.div`
+  opacity: 90%;
+  height: 100vh;
+  width: 80vw;
+  overflow-y: scroll;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding: 10.5vh 0 0 0;
+`
+
+export const Image = styled.div`
+  background-color: orange;
+  height: 350px;
+  width: 34vw;
+  margin: 10px;
+  cursor: pointer;
+  &:last-child {
+    margin-bottom: 11vh;
+}
+`
+
+export const ProfilePicture = styled.div`
+  width: 180px;
+  height: 180px;
+  background-image: url(${ProfilePic});
+  background-size: 100%;
 `

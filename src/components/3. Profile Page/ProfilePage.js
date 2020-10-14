@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
-import {Body, Logo, Logo2, Image, ButtonAddImage, ButtonLogoff} from './styles'
+import {Body, Logo, Logo2, ButtonAddImage, ButtonLogoff, Sidebar, Username, Main, Image, ProfilePicture} from './styles'
 
 const ProfilePage = () => {
   const history = useHistory()
@@ -47,26 +47,21 @@ const ProfilePage = () => {
     })
   }
 
-  const testao = () => {
-    if (imagesArray !== ""){
-      return "legal"
-    }
-    return "fué"
-  } 
-
-  const consola = () => {
-    console.log(imagesArray[0].author)
-  }
-
   return (
     <Body>
-      <button onClick={consola}>aqui</button>
-      <Logo><i>FLICK</i>ENU</Logo>
-      <Logo2>Perfil</Logo2>
-      <p>{name}</p>
-      {testao()}
-      <ButtonAddImage onClick={goToAddImagePage}>Adicione uma nova imagem</ButtonAddImage>
-      <ButtonLogoff onClick={logoff}>sair</ButtonLogoff>
+      <Sidebar>
+        <Logo><i>FLICK</i>ENU</Logo>
+        <Logo2>Perfil</Logo2>
+        <Username>{name}</Username>
+        <ProfilePicture />
+        <ButtonAddImage onClick={goToAddImagePage}>Adicione uma nova imagem</ButtonAddImage>
+        <ButtonLogoff onClick={logoff}>sair</ButtonLogoff>
+      </Sidebar>
+      <Main>
+        {imagesArray.map((image) => {
+          return <Image key={image.date} onClick={goToImageDetailsPage}>{image.subtitle}</Image>
+        })}
+      </Main>
     </Body>
   )
 }
