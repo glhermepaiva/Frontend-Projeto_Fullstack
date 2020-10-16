@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import { Archive } from '@material-ui/icons';
@@ -18,6 +18,13 @@ const AddImagePage = () => {
   const goToProfilePage = () => {
     history.push("/profile")
   }
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token")
+    if (token === null){
+        history.push("/")
+    }
+}, [])
 
   const addImage = () => {
     const token = window.localStorage.getItem("token")

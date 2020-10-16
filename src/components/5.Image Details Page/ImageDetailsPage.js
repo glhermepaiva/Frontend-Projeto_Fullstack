@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
@@ -14,6 +14,13 @@ const ImageDetailsPage = () => {
   const goToAddImagePage = () => {
     history.push("/addimage")
   }
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token")
+    if (token === null){
+        history.push("/")
+    }
+}, [])
 
   return (
     <div>
