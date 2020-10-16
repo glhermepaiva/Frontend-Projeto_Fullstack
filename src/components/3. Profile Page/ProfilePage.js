@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
-import {Body, Logo, Logo2, ButtonAddImage, ButtonLogoff, Sidebar, Username, Main, Image, ProfilePicture} from './styles'
+import {Body, Logo, Logo2, ButtonAddImage, ButtonLogoff, Sidebar, Username, Hello, Logos,
+  Main, Image, ProfilePicture, Gallery, Title, Logo3, ImageCard, TitleContainer, DivPerdida} from './styles'
+import {DisappearedLoading} from 'react-loadingg';
 
 const ProfilePage = () => {
   const history = useHistory()
@@ -28,6 +30,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     imagesFeed()
+    const token = window.localStorage.getItem("token")
+    if (token === null){
+      history.push("/")
+  }
   }, [])
 
   const imagesFeed = () => {
@@ -47,21 +53,43 @@ const ProfilePage = () => {
     })
   }
 
+  const mainExhibit = () => {
+    if (imagesArray.length === 0) {
+      return <div>"Adicione novas imagens!"</div>
+    } else {
+      return <DivPerdida>
+        {imagesArray.map((image) => {
+        return <ImageCard>
+                <Image key={image.date} onClick={goToImageDetailsPage} src={image.file} />
+                <TitleContainer>
+                  <Title>{image.subtitle}</Title>
+                </TitleContainer>
+               </ImageCard>
+        })}
+        </DivPerdida>
+    }
+  }
+
   return (
     <Body>
       <Sidebar>
-        <Logo><i>FLICK</i>ENU</Logo>
-        <Logo2>Perfil</Logo2>
-        <Username>{name}</Username>
+        <Logos>
+          <Logo><i>FLICK</i>ENU</Logo>
+          <Logo2>PERF<i>IL</i></Logo2>
+        </Logos>
+        <Hello>Olá,</Hello>
+        <Username><i>{name}</i></Username>
         <ProfilePicture />
-        <ButtonAddImage onClick={goToAddImagePage}>Adicione uma nova imagem</ButtonAddImage>
-        <ButtonLogoff onClick={logoff}>sair</ButtonLogoff>
+        <ButtonAddImage onClick={goToAddImagePage}>ADICIONE UMA <i>NOVA IMAGEM</i></ButtonAddImage>
+        <ButtonLogoff onClick={logoff}>Sair</ButtonLogoff>
       </Sidebar>
-      <Main>
-        {imagesArray.map((image) => {
-          return <Image key={image.date} onClick={goToImageDetailsPage}>{image.subtitle}</Image>
-        })}
-      </Main>
+      <Gallery>
+        <Logo3>GALE<i>RIA</i></Logo3>
+        <Main>
+          {loading ? <div>Aguarde...</div> : 
+          mainExhibit()}
+        </Main>
+      </Gallery>
     </Body>
   )
 }
