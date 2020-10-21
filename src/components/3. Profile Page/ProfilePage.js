@@ -89,14 +89,9 @@ const ProfilePage = () => {
     }
   }
 
-  const consolar = () => {
-    console.log(imagesArray)
-  }
-
   return (
     <Body>
       <Sidebar>
-        <button onClick={consolar}>consolar</button>
         <Logos>
           <Logo><i>FLICK</i>ENU</Logo>
           <Logo2>PERF<i>IL</i></Logo2>

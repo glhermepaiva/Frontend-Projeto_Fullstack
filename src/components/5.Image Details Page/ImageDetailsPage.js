@@ -1,33 +1,70 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
+import {Body, MainContainer, Return, Image, Sidebar, ImageTitle, ImageAuthorContainer, ImageAuthor, ImageTags,
+   ImageCollection, ImageBy, ImageTagsName, ImageTagsContainer} from './styles'
 
 const ImageDetailsPage = () => {
   const history = useHistory()
 
-  const baseUrl = "http://localhost: 3000"
+  const params = useParams()
+
+  const baseUrl = "https://flickenu.herokuapp.com"
 
   const goToProfilePage = () => {
-    history.push("/profile")
+    history.goBack()
   }
 
-  const goToAddImagePage = () => {
-    history.push("/addimage")
-  }
+  const [imageInfo, setImageInfo] = useState({})
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    getImageDetails()
     const token = window.localStorage.getItem("token")
     if (token === null){
         history.push("/")
     }
-}, [])
+  }, [])
+
+  const getImageDetails = () => {
+    setLoading(true)
+    const token = window.localStorage.getItem("token")
+    const id = params.id
+    axios.get(`${baseUrl}/image/${id}`, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        Authorization: token
+      }
+    })
+    .then((response) => {
+      setImageInfo(response.data.image[0])
+      setLoading(false)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
 
   return (
-    <div>
-      <h>IMAGE DETAIL PAGE</h>
-      <button onClick={goToProfilePage}>Voltar para o perfil</button>
-      <button onClick={goToAddImagePage}>Adicione uma nova imagem</button>
-    </div>
+    <Body>
+      <MainContainer>
+        <Return onClick={goToProfilePage}><i>← VOLTAR</i></Return>
+        {loading ? <div>Carregando...</div> : 
+        <Image src={imageInfo.file} />}
+      </MainContainer>
+      <Sidebar>
+        <ImageCollection>{imageInfo.collection}</ImageCollection>
+        <ImageTitle><i>{imageInfo.subtitle}</i></ImageTitle>
+        <ImageAuthorContainer>
+          <ImageBy>por </ImageBy>
+          <ImageAuthor><i>{imageInfo.author}</i></ImageAuthor>
+        </ImageAuthorContainer>
+        <ImageTagsContainer>
+          <ImageTagsName>tags:</ImageTagsName>
+          <ImageTags> <u>{imageInfo.tags}</u></ImageTags>
+        </ImageTagsContainer>
+      </Sidebar>
+    </Body>
   )
 }
 

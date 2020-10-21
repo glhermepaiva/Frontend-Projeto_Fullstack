@@ -13,7 +13,7 @@ export const Body = styled.div`
 export const Return = styled.div`
   position: absolute;
   left: 3vw;
-  top: 4vw;
+  top: 3.5vw;
   font-size: 2vw;
   color: white;
   font-weight: bold;
