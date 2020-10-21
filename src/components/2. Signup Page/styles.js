@@ -46,7 +46,7 @@ export const Inputs = styled.div`
 
 export const Input = styled.input`
   padding-left: 0.3vw;
-  margin: 0.5vw 0;
+  margin: 0.2vw 0;
   width: 23vw;
   height: 1.8vw;
   font-size: 0.9vw;
@@ -58,7 +58,7 @@ export const Input = styled.input`
 
 export const Select = styled.select`
   height: 2.1vw;
-  margin: 0.5vw 0;
+  margin: 0.2vw 0;
   width: 23.4vw;
   color: rgb(117, 117, 117);
   font-size: 0.9vw;

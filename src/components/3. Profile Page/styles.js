@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import ProfilePic from '../images/profilepic.jpg'
 
 export const Body = styled.div`
   display: flex;
@@ -67,11 +66,11 @@ export const Username = styled.p`
   user-select: none;
 `
 
-export const ProfilePicture = styled.div`
+export const ProfilePicture = styled.img`
   width: 10vw;
   height: 10vw;
-  background-image: url(${ProfilePic});
   background-size: 100%;
+  object-fit: cover;
 `
 
 export const ButtonAddImage = styled.button`
@@ -91,7 +90,7 @@ export const ButtonAddImage = styled.button`
   :hover {
     opacity: 80%;
     transition: 0.6s;
-    color: #E69D83;
+    color: #86C7D0;
   }
   :active {
     color: #89B0BD;
@@ -114,7 +113,7 @@ export const ButtonLogoff = styled.button`
   :hover {
     opacity: 80%;
     transition: 0.6s;
-    color: #F2EDF2;
+    color: #86C7D0;
   }
   :active {
     color: #FBAB8E;
@@ -136,6 +135,16 @@ export const Logo3 = styled.h1`
   user-select: none;
   display: inline;
   margin: -4vh 0 0.5vw 0;
+`
+
+export const AddImagesMsg = styled.div`
+  width: 70.4vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+  color: white;
 `
 
 export const Main = styled.div`
@@ -161,7 +170,7 @@ export const Main = styled.div`
 }
 `
 
-export const DivPerdida = styled.div`
+export const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
@@ -179,9 +188,7 @@ export const ImageCard = styled.div`
 export const Image = styled.img`
   width: 22vw;
   height: 25vh;
-  display: block;
-  z-index: 1;
-  flex-grow: 1;
+  object-fit: cover;
 `
 
 export const TitleContainer = styled.div`
@@ -200,6 +207,6 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.p`
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 1.8vw;
   margin: 0 0 0.2vw 0.5vw;
 `
