@@ -20,10 +20,10 @@ const App = () => {
         <Route exact path ="/signup">
           <SignupPage />
         </Route>
-        <Route exact path ="/profile">
+        <Route exact path ="/profile/:username">
           <ProfilePage />
         </Route>
-        <Route exact path ="/addimage">
+        <Route exact path ="/addimage/:username">
           <AddImagePage />
         </Route>
         <Route exact path ="/image/:id">

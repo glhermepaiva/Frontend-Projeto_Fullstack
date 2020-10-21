@@ -35,7 +35,7 @@ const SignupPage = () => {
       window.localStorage.setItem("token", response.data.token)
       window.localStorage.setItem("name", response.data.infos.name)
       window.localStorage.setItem("username", response.data.infos.username)
-      history.push("/profile")
+      history.push(`/profile/${username}`)
     }).catch((error) => {
       alert("Erro ao criar usuário, por favor tente novamente.")
       console.log(error.message)

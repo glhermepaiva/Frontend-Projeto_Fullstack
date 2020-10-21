@@ -30,7 +30,7 @@ const LoginPage = () => {
       window.localStorage.setItem("token", response.data.token)
       window.localStorage.setItem("name", response.data.infos.name)
       window.localStorage.setItem("username", response.data.infos.username)
-      history.push("/profile")
+      history.push(`/profile/${username}`)
       setLoading(false)
     }).catch((error) => {
       alert("Dados incorretos, por favor tente novamente")
