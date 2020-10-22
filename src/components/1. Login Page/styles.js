@@ -56,7 +56,7 @@ export const ButtonLogin = styled.button`
   user-select: none;
   font-size: 1.2vw;
   padding: 0.7vw;
-  opacity: 80%;
+  opacity: 85%;
   :hover {
     opacity: 100%;
     transition: 0.6s;
