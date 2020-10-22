@@ -78,8 +78,8 @@ const ProfilePage = () => {
     } else {
       return <MainContainer>
         {imagesArray.map((image) => {
-        return <ImageCard>
-                <Image key={image.date} onClick={() => goToImageDetailsPage(image.id)} src={image.file} />
+        return <ImageCard onClick={() => goToImageDetailsPage(image.id)} >
+                <Image key={image.date} src={image.file} />
                 <TitleContainer>
                   <Title>{image.subtitle}</Title>
                 </TitleContainer>
