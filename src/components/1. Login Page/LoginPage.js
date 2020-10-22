@@ -21,8 +21,8 @@ const LoginPage = () => {
   const goToProfilePage = () => {
     setLoading(true)
     const body = {
-      email: email,
       username: username,
+      email: email,
       password: password
     }
     axios.post(`${baseUrl}/user/login`, body)
@@ -30,7 +30,7 @@ const LoginPage = () => {
       window.localStorage.setItem("token", response.data.token)
       window.localStorage.setItem("name", response.data.infos.name)
       window.localStorage.setItem("username", response.data.infos.username)
-      history.push(`/profile/${username}`)
+      history.push(`/profile/${window.localStorage.getItem("username")}`)
       setLoading(false)
     }).catch((error) => {
       alert("Dados incorretos, por favor tente novamente")
@@ -61,7 +61,7 @@ const LoginPage = () => {
       <Logo2>AGO<i>RA</i></Logo2>
       <Input placeholder="Nome de Usuário" value={username} onChange={onChangeUsername} />
       <Input placeholder="Email" value={email} onChange={onChangeEmail} />
-      <Input placeholder="Senha" onChange={onChangePassword} type="password" />
+      <Input placeholder="Senha" value={password} onChange={onChangePassword} type="password" />
       <ButtonLogin onClick={goToProfilePage}>LOGAR</ButtonLogin>
       <Texto>Ainda não tem uma conta?</Texto>
       <ButtonSignup onClick={goToSignupPage}>Cadastre-se!</ButtonSignup>
