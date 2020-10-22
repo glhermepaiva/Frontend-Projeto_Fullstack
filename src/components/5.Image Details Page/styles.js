@@ -7,6 +7,7 @@ export const Body = styled.div`
   justify-content: space-between;
   padding: 2vw 3vw 3vw 3vw;
   background-image: linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%);
+  height: 100vh;
 `
 
 export const MainContainer = styled.div`

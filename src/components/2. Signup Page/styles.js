@@ -85,8 +85,9 @@ export const ButtonSignup = styled.button`
   user-select: none;
   font-size: 0.9vw;
   padding: 0.7vw;
+  opacity: 75%;
   :hover {
-    opacity: 80%;
+    opacity: 100%;
     transition: 0.6s;
     color: #F2EDF2;
   }
@@ -108,10 +109,10 @@ export const ButtonLogin = styled.button`
   user-select: none;
   font-size: 1vw;
   padding: 0.7vw;
+  opacity: 75%;
   :hover {
-    opacity: 80%;
+    opacity: 100%;
     transition: 0.6s;
-    color: #E69D83;
   }
   :active {
     color: #89B0BD;

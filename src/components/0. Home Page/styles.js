@@ -52,8 +52,9 @@ export const ButtonLogin = styled.div`
   align-items: center;
   justify-content: center;
   background-color: black;
+  opacity: 75%;
   :hover {
-    opacity: 65%;
+    opacity: 100%;
     transition: 0.6s;
   }
   :active {
@@ -73,8 +74,9 @@ export const ButtonSignup = styled.div`
   align-items: center;
   justify-content: center;
   background-color: black;
+  opacity: 75%;
   :hover {
-    opacity: 65%;
+    opacity: 100%;
     transition: 0.6s;
   }
   :active {

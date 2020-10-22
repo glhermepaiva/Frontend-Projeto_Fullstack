@@ -32,8 +32,6 @@ const ImageDetailsPage = () => {
     const id = params.id
     axios.get(`${baseUrl}/image/${id}`, {
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         Authorization: token
       }
     })
