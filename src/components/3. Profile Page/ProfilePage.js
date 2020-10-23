@@ -19,8 +19,7 @@ const ProfilePage = () => {
   }
 
   const goToImageDetailsPage = (id) => {
-    alert("NÃO IMPLEMENTADO")
-    // history.push(`/image/${id}`)
+    history.push(`/image/${id}`)
   }
 
   const logoff = () => {

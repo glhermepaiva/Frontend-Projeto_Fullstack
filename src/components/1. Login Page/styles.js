@@ -94,4 +94,3 @@ export const ButtonSignup = styled.button`
     color: #FBAB8E;
   }
 `
-
