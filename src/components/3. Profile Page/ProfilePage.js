@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useHistory, useParams} from 'react-router-dom';
-import {Body, Logo, Logo2, ButtonAddImage, ButtonLogoff, Sidebar, Username, Hello, Logos, AddImagesMsg, 
-  Main, Image, ProfilePicture, Gallery, Title, Logo3, ImageCard, TitleContainer, MainContainer} from './styles'
+import {Body, Logo, Logo2, ButtonAddImage, ButtonLogoff, Sidebar, Username, Hello, Logos, AddImagesMsg, ProfilePictureText,
+  Main, Image, ProfilePicture, Gallery, Title, Logo3, ImageCard, TitleContainer, MainContainer, ProfilePictureContainer} from './styles'
 import DefaultProfilePicture from '../images/profilepic.jpg'
 
 const ProfilePage = () => {
@@ -18,8 +18,12 @@ const ProfilePage = () => {
     history.push(`/addimage/${params.username}`)
   }
 
+  const goToAddProfilePicturePage = () => {
+    history.push(`/addprofilepicture/${params.username}`)
+  }
+
   const goToImageDetailsPage = (id) => {
-    history.push(`/image/${id}`)
+    history.push(`/image/details/${id}`)
   }
 
   const logoff = () => {
@@ -53,7 +57,7 @@ const ProfilePage = () => {
       setImagesArray(response.data.gallery)
       setLoading(false)
     }).catch((error) => {
-      console.log(error.message)
+      console.log(error.response.data.error)
     })
   }
 
@@ -68,7 +72,7 @@ const ProfilePage = () => {
     .then((response) => {
       setProfilePicture(response.data.profilePicture)
     }).catch((error) => {
-      console.log(error.message)
+      console.log(error.response.data.error)
     })
   }
 
@@ -78,8 +82,8 @@ const ProfilePage = () => {
     } else {
       return <MainContainer>
         {imagesArray.map((image) => {
-        return <ImageCard onClick={() => goToImageDetailsPage(image.id)} >
-                <Image key={image.date} src={image.file} />
+        return <ImageCard key={image.date} onClick={() => goToImageDetailsPage(image.id)} >
+                <Image src={image.file} />
                 <TitleContainer>
                   <Title>{image.subtitle}</Title>
                 </TitleContainer>
@@ -98,7 +102,10 @@ const ProfilePage = () => {
         </Logos>
         <Hello>Olá,</Hello>
         <Username><i>{name}</i></Username>
-        <ProfilePicture src={profilePicture} />
+        <ProfilePictureContainer onClick={goToAddProfilePicturePage}>
+          <ProfilePicture src={profilePicture} />
+          <ProfilePictureText>TROCAR <br/> FOTO DE PERFIL</ProfilePictureText>
+        </ProfilePictureContainer>
         <ButtonAddImage onClick={goToAddImagePage}>ADICIONE UMA <i>NOVA IMAGEM</i></ButtonAddImage>
         <ButtonLogoff onClick={logoff}>Sair</ButtonLogoff>
       </Sidebar>

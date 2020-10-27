@@ -29,16 +29,18 @@ const ImageDetailsPage = () => {
   const getImageDetails = () => {
     setLoading(true)
     const token = window.localStorage.getItem("token")
-    axios.get(`${baseUrl}/image/${params.id}`, {
+    axios.get(`${baseUrl}/image/details/${params.id}`, {
       headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
         Authorization: token
       }
     })
     .then((response) => {
-      setImageInfo(response.data.image)
+      setImageInfo(response.data.image[0])
       setLoading(false)
     }).catch((error) => {
-      console.log(error)
+      console.log(error.response.data.error)
     })
   }
 

@@ -33,8 +33,7 @@ const LoginPage = () => {
       history.push(`/profile/${window.localStorage.getItem("username")}`)
       setLoading(false)
     }).catch((error) => {
-      alert("Dados incorretos, por favor tente novamente")
-      console.log(error.message)
+      alert(error.response.data.error)
       setEmail("")
       setUsername("")
       setPassword("")

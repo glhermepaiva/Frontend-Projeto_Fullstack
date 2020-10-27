@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {useHistory, useParams} from 'react-router-dom';
-import {Body, ContainerAddImage, ContainerProfilePicture, LogoAddImage, LogoProfilePicture, Input, InputDate,
-  ButtonAddImage, Return, LogoAddImageColor, LogoProfilePictureColor, ButtonProfilePicture} from './styles'
+import {useHistory} from 'react-router-dom';
+import {Body, ContainerAddImage,  LogoAddImage,  Input, InputDate,
+  ButtonAddImage, Return, LogoAddImageColor, } from './styles'
 
 const AddImagePage = () => {
   const history = useHistory()
-
-  const params = useParams()
 
   const baseUrl = "https://flickenu.herokuapp.com"
 
@@ -17,7 +15,6 @@ const AddImagePage = () => {
   const [file, setFile] = useState("")
   const [tags, setTags] = useState("")
   const [collection, setCollection ] = useState("")
-  const [profilePicFile, setProfilePicFile] = useState("")
 
   const goToProfilePage = () => {
     history.goBack()
@@ -28,7 +25,7 @@ const AddImagePage = () => {
     if (token === null){
         history.push("/")
     }
-}, [])
+  }, [])
 
   const addImage = () => {
     const token = window.localStorage.getItem("token")
@@ -48,26 +45,7 @@ const AddImagePage = () => {
       goToProfilePage()
     })
     .catch((error) => {
-      alert("Erro ao adicionar imagem, por favor revise as informações e tente novamente.")
-      console.log(error.message)
-    })
-  }
-
-  const addProfilePicture = () => {
-    const token = window.localStorage.getItem("token")
-    const body = {
-      file: profilePicFile
-    }
-    axios.post(`${baseUrl}/image/add/profilePicture/${params.username}`, body, {
-      headers: { Authorization: token }
-    })
-    .then(() => {
-      alert("Imagem adicionada com sucesso!")
-      goToProfilePage()
-    })
-    .catch((error) => {
-      alert("Erro ao adicionar imagem, por favor revise as informações e tente novamente.")
-      console.log(error.message)
+      alert(error.response.data.error)
     })
   }
 
@@ -95,10 +73,6 @@ const AddImagePage = () => {
     setCollection(event.target.value)
   }
 
-  const onChangeProfilePicFile = event => {
-    setProfilePicFile(event.target.value)
-  }
-
   return (
     <Body>
       <Return onClick={goToProfilePage}><i>← VOLTAR</i></Return>
@@ -113,12 +87,6 @@ const AddImagePage = () => {
         <Input placeholder="Coleção" value={collection} onChange={onChangeCollection} />
           <ButtonAddImage onClick={addImage}>ADICIONAR</ButtonAddImage>
       </ContainerAddImage>
-      <ContainerProfilePicture>
-        <LogoProfilePicture>TROQUE SUA </LogoProfilePicture>
-        <LogoProfilePictureColor>FOTO DE PERF<i>IL</i></LogoProfilePictureColor>
-        <Input placeholder="Arquivo" value={profilePicFile} onChange={onChangeProfilePicFile} />
-        <ButtonProfilePicture onClick={addProfilePicture}>ATUALIZAR FOTO</ButtonProfilePicture>
-      </ContainerProfilePicture>
     </Body>
   )
 }
