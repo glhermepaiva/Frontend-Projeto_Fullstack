@@ -5,7 +5,8 @@ import LoginPage from './components/1. Login Page/LoginPage'
 import SignupPage from './components/2. Signup Page/SignupPage'
 import ProfilePage from './components/3. Profile Page/ProfilePage'
 import AddImagePage from './components/4. Add Image Page/AddImagePage'
-import ImageDetailsPage from './components/5.Image Details Page/ImageDetailsPage'
+import ImageDetailsPage from './components/6.Image Details Page/ImageDetailsPage'
+import AddProfilePicturePage from './components/5. Add Profile Picture Page/AddProfilePicturePage'
 
 const App = () => {
   return (
@@ -26,7 +27,10 @@ const App = () => {
         <Route exact path ="/addimage/:username">
           <AddImagePage />
         </Route>
-        <Route exact path ="/image/:id">
+        <Route exact path ="/addprofilepicture/:username">
+          <AddProfilePicturePage />
+        </Route>
+        <Route exact path ="/image/details/:id">
           <ImageDetailsPage />
         </Route>
         <Route path ="/">

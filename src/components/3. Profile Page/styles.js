@@ -73,6 +73,34 @@ export const ProfilePicture = styled.img`
   object-fit: cover;
 `
 
+export const ProfilePictureText = styled.div`
+  position: absolute;
+  visibility: hidden;
+  font-size: 1.5vw;
+  font-weight: bold;
+  width: 10vw;
+  height: 21vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ProfilePictureContainer = styled.div`
+  width: 10vw;
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover ${ProfilePictureText}{
+    visibility: visible;
+    color: white;
+    background-image: linear-gradient(to top, black, transparent);
+    transition: 0.9s;
+    text-align: center;
+  }
+`
+
 export const ButtonAddImage = styled.button`
   color: white;
   background-color: #498DB4;
@@ -183,6 +211,10 @@ export const ImageCard = styled.div`
   background-color: #FBFBFB;
   margin: 0.5vw;
   cursor: pointer;
+  opacity: 90%;
+  :hover{
+    opacity: 100%;
+  }
 `
 
 export const Image = styled.img`

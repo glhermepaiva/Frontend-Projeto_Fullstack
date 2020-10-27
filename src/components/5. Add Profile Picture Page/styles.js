@@ -30,35 +30,34 @@ export const Return = styled.div`
   }
 `
 
-export const ContainerAddImage = styled.div`
-  width: 40vw;
-  height: 55vh;
+export const ContainerProfilePicture = styled.div`
+  margin-left: 3vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1vw;
-  opacity: 80%;
+  opacity: 75%;
 `
 
-export const LogoAddImage = styled.h1`
+export const LogoProfilePicture = styled.h1`
   margin: 0;
   background-color: black;
   color: white;
-  font-size: 3.5vw;
+  font-size: 2.5vw;
 `
 
-export const LogoAddImageColor = styled.h1`
+export const LogoProfilePictureColor = styled.h1`
   margin: 0;
+  color: #24d292;
   background-color: black;
-  color: #d558c8;
-  font-size: 5.5vw;
+  font-size: 4.5vw;
   margin-bottom: 2vh;
 `
 
 export const Input = styled.input`
   width: 20vw;
   padding-left: 0.3vw;
-  margin: 0.2vw 0;
+  margin: 0.5vw 0;
   height: 1.3vw;
   font-size: 0.9vw;
   outline: none;
@@ -66,22 +65,9 @@ export const Input = styled.input`
   font-weight: 550;
 `
 
-export const InputDate = styled.input`
-  width: 20.1vw;
-  padding-left: 0.3vw;
-  margin: 0.2vw 0;
-  height: 1.5vw;
-  font-size: 0.9vw;
-  outline: none;
-  border: none;
-  font-weight: 600;
-  color: rgb(115, 127, 127);
-`
-
-export const ButtonAddImage = styled.button`
+export const ButtonProfilePicture = styled.button`
   color: white;
-  background-color: #d558c8;
-  width:8.5vw;
+  background-color: #24d292;
   margin: 1vw 0;
   display: inline;
   padding: 1vw;
@@ -90,7 +76,7 @@ export const ButtonAddImage = styled.button`
   cursor: pointer;
   outline: none;
   user-select: none;
-  font-size: 1vw;
+  font-size: 0.9vw;
   padding: 0.7vw;
   :hover {
     opacity: 80%;

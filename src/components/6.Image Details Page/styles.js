@@ -5,13 +5,14 @@ export const Body = styled.div`
   font-family: Helvetica;
   align-items: center;
   justify-content: space-between;
-  padding: 2vw 3vw 3vw 3vw;
+  padding: 0vw 3vw 0vw 3vw;
   background-image: linear-gradient(-225deg, #CBBACC 0%, #2580B3 100%);
   height: 100vh;
 `
 
 export const MainContainer = styled.div`
-
+  margin: 0;
+  padding: 0;
 `
 
 export const Return = styled.div`
@@ -19,7 +20,8 @@ export const Return = styled.div`
   font-weight: bold;
   opacity: 90%;
   user-select: none;
-  margin-bottom: 3vh;
+  margin-bottom: 4vh;
+  width: 15vw;
   cursor: pointer;
   :hover {
     opacity: 80%;
@@ -96,7 +98,7 @@ export const ImageTagsName = styled.div`
   font-size: 1vw;
   width: 10vw;
   text-align: center;
-  padding: 0.3vw;
+  padding: 0.2vw 0.3vw 0.3vw 0.3vw ;
   border-radius: 0.2vw;
 `
 
