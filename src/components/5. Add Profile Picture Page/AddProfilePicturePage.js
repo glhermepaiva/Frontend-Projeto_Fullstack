@@ -21,7 +21,7 @@ const AddProfilePicturePage = () => {
     if (token === null){
         history.push("/")
     }
-  }, [])
+  }, [history])
 
   const addProfilePicture = () => {
     const token = window.localStorage.getItem("token")

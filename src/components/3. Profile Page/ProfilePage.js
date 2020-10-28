@@ -42,7 +42,7 @@ const ProfilePage = () => {
     if (token === null){
       history.push("/")
   }
-  }, [])
+  }, [history])
 
   const imagesFeed = () => {
     setLoading(true)

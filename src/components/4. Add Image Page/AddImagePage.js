@@ -25,7 +25,7 @@ const AddImagePage = () => {
     if (token === null){
         history.push("/")
     }
-  }, [])
+  }, [history])
 
   const addImage = () => {
     const token = window.localStorage.getItem("token")

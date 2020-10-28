@@ -24,7 +24,7 @@ const ImageDetailsPage = () => {
     if (token === null){
         history.push("/")
     }
-  }, [])
+  }, [history])
 
   const getImageDetails = () => {
     setLoading(true)
