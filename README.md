@@ -13,5 +13,4 @@ Acessar o site https://flickenu.surge.sh/ e criar um novo usuário
 https://github.com/glhermepaiva/Backend-Projeto_Fullstack
 
 ## Contato
-Guilherme Paiva
-https://www.linkedin.com/in/glhrmpaiva
+https://www.linkedin.com/in/glhrmpaiva // glhrmpaiva@gmail.com
