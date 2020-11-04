@@ -9,6 +9,9 @@ O projeto se trata de um site de compartilhamento de imagens, nos moldes do Flic
 ## Instruções para rodar
 Acessar o site https://flickenu.surge.sh/ e criar um novo usuário
 
+## Link para parte Backend do projeto
+https://github.com/glhermepaiva/Backend-Projeto_Fullstack
+
 ## Contato
 Guilherme Paiva
 https://www.linkedin.com/in/glhrmpaiva
